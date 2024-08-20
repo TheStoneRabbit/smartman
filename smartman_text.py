@@ -6,7 +6,7 @@ from rich.markdown import Markdown
 from rich.syntax import Syntax
 from pyfiglet import Figlet
 
-f = Figlet(font='epic')
+f = Figlet(font='rectangles')
 f1 = Figlet(font='small')
 f2 = Figlet(font='straight')
 client = OpenAI(api_key=os.getenv("OPEN_API_KEY"))
