@@ -5,7 +5,11 @@ from rich.console import Console
 from rich.markdown import Markdown
 from rich.syntax import Syntax
 from pyfiglet import Figlet
+from termcolor import colored
 import readline
+
+
+
 f = Figlet(font='rectangles')
 f1 = Figlet(font='small')
 f2 = Figlet(font='straight')
@@ -28,14 +32,20 @@ if __name__ == "__main__":
     while True:
         try:
             os.system("clear")
-            print(f.renderText('SmartMan'))
-            print(f1.renderText('ChatGPT CLI'))
-            print(f2.renderText('By TheStoneRabbit'))
+            first_title = f.renderText("SmartMan")
+            second_title = f1.renderText("ChatGPT CLI")
+            author = f2.renderText("By: TheStoneRabbit")
+            colored_text1 = colored(first_title, color="red", on_color="on_black", attrs=['bold'])
+            colored_text2 = colored(second_title, color="green", on_color="on_black", attrs=['bold'])
+            colored_text3 = colored(author, color="blue", on_color="on_black", attrs=['bold'])
+            print(colored_text1)
+            print(colored_text2)
+            print(colored_text3)
             prompt = input("> ")
             response = query_chatgpt(prompt)
-            markdown = response 
+            markdown = response
             console.clear()
-            with console.pager(styles=True): 
+            with console.pager(styles=True):
                 syntax = Markdown(markdown, code_theme="monokai")
                 console.print(syntax)
         except KeyboardInterrupt:
