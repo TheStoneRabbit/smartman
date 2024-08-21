@@ -37,12 +37,21 @@ if __name__ == "__main__":
             print(colored_text2)
             print(colored_text3)
             prompt = input("> ")
-            response = query_chatgpt(prompt)
-            markdown = response
-            console.clear()
-            with console.pager(styles=True):
-                syntax = Markdown(markdown, code_theme="monokai")
-                console.print(syntax)
+            if prompt == "/newcontext":
+                conversation_log = [{"role": "system", "content": "You are ChatGPT, a helpful assistant."}]
+                os.system("clear")
+                print("New context created.")
+                sleep(2)
+                continue
+            elif prompt == "/quit":
+                break
+            else:
+                response = query_chatgpt(prompt)
+                markdown = response
+                console.clear()
+                with console.pager(styles=True):
+                    syntax = Markdown(markdown, code_theme="monokai")
+                    console.print(syntax)
         except KeyboardInterrupt:
             break
     print("\n\nGoodbye!")
