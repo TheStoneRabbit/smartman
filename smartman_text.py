@@ -8,21 +8,16 @@ from pyfiglet import Figlet
 from termcolor import colored
 import readline
 
-
+conversation_log = [{"role": "system", "content": "You are ChatGPT, a helpful assistant."}]
 
 f = Figlet(font='rectangles')
 f1 = Figlet(font='small')
 f2 = Figlet(font='straight')
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 def query_chatgpt(prompt):
+    conversation_log.append({"role": "user", "content": prompt})
     chat_completion = client.chat.completions.create(
-            messages=[
-                {"role": "system", "content": "You are ChatGPT, a helpful assistant."},
-                {
-                    "role": "user",
-                    "content": prompt,
-                }
-                ],
+            messages=conversation_log,
             model="gpt-4o",
             )
     return chat_completion.choices[0].message.content
