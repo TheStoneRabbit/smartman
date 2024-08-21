@@ -13,7 +13,7 @@ import readline
 f = Figlet(font='rectangles')
 f1 = Figlet(font='small')
 f2 = Figlet(font='straight')
-client = OpenAI(api_key=os.getenv("OPEN_API_KEY"))
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 def query_chatgpt(prompt):
     chat_completion = client.chat.completions.create(
             messages=[
