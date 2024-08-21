@@ -29,7 +29,7 @@ if __name__ == "__main__":
         try:
             os.system("clear")
             print(f.renderText('SmartMan'))
-            print(f1.renderText('ChatGPT Based Program'))
+            print(f1.renderText('ChatGPT CLI'))
             print(f2.renderText('By TheStoneRabbit'))
             prompt = input("> ")
             response = query_chatgpt(prompt)
