@@ -54,7 +54,7 @@ if __name__ == "__main__":
             print("║         SmartMan         ║")
             print("║       ChatGPT CLI        ║")
             print("║    By: TheStoneRabbit    ║")
-            print("╚══════════════════════════╝\n\n")
+            print("╚══════════════════════════╝\n")
             prompt = input("> ")
             if prompt == "/newcontext":
                 conversation_log = [{"role": "system", "content": "You are ChatGPT, a helpful assistant."}]
