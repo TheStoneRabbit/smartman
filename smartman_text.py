@@ -1,10 +1,10 @@
+# -*- coding: utf-8 -*-
 import os
 from openai import OpenAI
 from time import sleep
 from rich.console import Console
 from rich.markdown import Markdown
 from rich.syntax import Syntax
-from pyfiglet import Figlet
 from termcolor import colored
 import pyperclip
 
@@ -14,9 +14,6 @@ import time
 
 conversation_log = [{"role": "system", "content": "You are ChatGPT, a helpful assistant."}]
 
-f = Figlet(font='rectangles')
-f1 = Figlet(font='small')
-f2 = Figlet(font='straight')
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 console = Console(color_system="256", emoji=True)
 
@@ -53,15 +50,11 @@ if __name__ == "__main__":
     while True:
         try:
             os.system("clear")
-            first_title = f.renderText("SmartMan")
-            second_title = f1.renderText("ChatGPT CLI")
-            author = f2.renderText("By: TheStoneRabbit")
-            colored_text1 = colored(first_title, color="white", on_color="on_dark_grey", attrs=['bold'])
-            colored_text2 = colored(second_title, color="white", on_color="on_dark_grey", attrs=['bold'])
-            colored_text3 = colored(author, color="white", on_color="on_dark_grey", attrs=['bold'])
-            print(colored_text1)
-            print(colored_text2)
-            print(colored_text3)
+            print("╔══════════════════════════╗")
+            print("║         SmartMan         ║")
+            print("║       ChatGPT CLI        ║")
+            print("║    By: TheStoneRabbit    ║")
+            print("╚══════════════════════════╝\n\n")
             prompt = input("> ")
             if prompt == "/newcontext":
                 conversation_log = [{"role": "system", "content": "You are ChatGPT, a helpful assistant."}]
