@@ -11,6 +11,7 @@
 - **Context Management**: Start a new conversation context anytime with the `/newcontext` command.
 - **Figlet Titles**: Displays a stylish title and author name using Figlet ASCII art.
 - **Graceful Exit**: Exit the application cleanly with `/quit` or a keyboard interrupt (Ctrl+C).
+- **Automatic Code Block Copying**: Code Blocks are automatically copied to the clipboard as one chunk of text.
 
 ## Dependencies
 
