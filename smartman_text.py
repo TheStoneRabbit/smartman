@@ -43,7 +43,7 @@ def query_chatgpt(prompt):
     conversation_log.append({"role": "user", "content": prompt})
     chat_completion = client.chat.completions.create(
             messages=conversation_log,
-            model="gpt-4o",
+            model="gpt-4o-search-preview",
     )
     spinner_done = True
     spinner_thread.join()
@@ -72,8 +72,8 @@ if __name__ == "__main__":
                 has_files = True
                 selected_files = open_multiple_files()
                 console.clear()
-                print("Files uploaded. Press the enter key to continue.")
-                prompt = input("> ")
+                time.sleep(2)
+                input("Files uploaded. Press the enter key to continue prompting.")
             else:
                 if has_files:
                     start_text = "Below are the files you need to analyze."
